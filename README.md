@@ -8,11 +8,13 @@
 
 * barcodes.tsv.gz
 * features.tsv.gz
-
 * matrix.mtx.gz
 
 ```r
 # 读取单细胞数据集并创建Seurat对象
+
+library(Seurat)
+
 GSE_Seurat <- CreateSeuratObject(
     project = "GSExxxxx",  # 在orig.ident中设置项目名称，可以使用GSE编号来标识数据集
     counts = Read10X("包含上述三个压缩文件的文件夹地址"),  # 读取10x Genomics格式的数据。该函数会自动读取指定文件夹中的压缩文件（.gz），并返回计数矩阵。
